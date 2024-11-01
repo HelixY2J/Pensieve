@@ -4,16 +4,18 @@ import (
 	"log"
 
 	"github.com/go-sql-driver/mysql"
+	_ "github.com/joho/godotenv/autoload"
 )
 
 func main() {
+
 	cfg := mysql.Config{
-		// to-do : shift to env var
+
 		User:                 "root",
-		Passwd:               "password",
-		Net:                  "tcp",
-		Addr:                 "localhost.3306",
-		DBName:               "pensieve",
+		Passwd:               EnvString("PASSWORD", "guest"),
+		Net:                  EnvString("NET", "tcp"),
+		Addr:                 EnvString("ADDR", "127.0.0.1:3308"),
+		DBName:               EnvString("DBName", "db"),
 		AllowNativePasswords: true,
 		ParseTime:            true,
 	}

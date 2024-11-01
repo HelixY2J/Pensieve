@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	_ "github.com/joho/godotenv/autoload"
 )
 
 type APIServer struct {
@@ -22,7 +23,19 @@ func (s *APIServer) Run() {
 	subrouter := router.PathPrefix("/api/v1").Subrouter()
 
 	store := NewStore(s.db)
-	service := NewService(store)
+
+	apiKey := EnvString("SENDGRID_API_KEY", "")
+	if apiKey == "" {
+		log.Fatal("SENDGRID_API_KEY must be set")
+	}
+
+	fromEmail := EnvString("SENDGRID_FROM_EMAIL", "")
+	if fromEmail == "" {
+		log.Fatal("SENDGRID_FROM_EMAIL must be set")
+	}
+
+	mailer := NewSendGridMailer(apiKey, fromEmail)
+	service := NewService(store, mailer)
 	service.RegisterRoutes(subrouter)
 
 	log.Println("starting the API server at ", s.addr)

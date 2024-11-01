@@ -72,7 +72,7 @@ func (s *Store) GetBookByISBN(isbn string) (*Book, error) {
 		return nil, fmt.Errorf("book not found")
 	}
 
-	return nil, nil
+	return book, nil
 }
 
 func (s *Store) GetRandomHighlights(n, userID int) ([]*Highlight, error) {
