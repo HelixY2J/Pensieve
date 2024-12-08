@@ -10,3 +10,5 @@ github.com/sendgrid/rest v2.6.9+incompatible h1:1EyIcsNdn9KIisLW50MKwmSRSK+ekuei
 github.com/sendgrid/rest v2.6.9+incompatible/go.mod h1:kXX7q3jZtJXK5c5qK83bSGMdV6tsOE70KbHoqJls4lE=
 github.com/sendgrid/sendgrid-go v3.16.0+incompatible h1:i8eE6IMkiCy7vusSdacHHSBUpXyTcTXy/Rl9N9aZ/Qw=
 github.com/sendgrid/sendgrid-go v3.16.0+incompatible/go.mod h1:QRQt+LX/NmgVEvmdRw0VT/QgUn499+iza2FnDca9fg8=
+github.com/smtp2go-oss/smtp2go-go v1.0.3 h1:CuNY5CXw53r9GKa1xjuS1koWDzpXb1rGcHG0TGk0hiM=
+github.com/smtp2go-oss/smtp2go-go v1.0.3/go.mod h1:lkv36awQXRBWAvnd517FFESKvne8465KCu90lPThcEY=

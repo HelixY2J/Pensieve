@@ -26,7 +26,7 @@ func (s *Service) RegisterRoutes(router *mux.Router) {
 	// send daily insights from cloud
 
 	router.HandleFunc("/users/{userID}/parse-kindle-file", s.handleParseKindleFile).Methods("POST")
-	router.HandleFunc("/cloud/send-daily-insights", s.handleParseKindleFile).Methods("POST")
+	router.HandleFunc("/cloud/send-daily-insights", s.handleSendDailyInsights).Methods("GET")
 }
 
 func (s *Service) handleParseKindleFile(w http.ResponseWriter, r *http.Request) {
@@ -65,7 +65,7 @@ func (s *Service) handleSendDailyInsights(w http.ResponseWriter, r *http.Request
 	}
 
 	for _, usr := range users {
-		hs, err := s.store.GetRandomHighlights(3, usr.ID)
+		hs, err := s.store.GetRandomHighlights(7, usr.ID)
 		if err != nil {
 			WriteJSON(w, http.StatusInternalServerError, err.Error())
 			return

@@ -1,7 +1,7 @@
 
 A Go based service for parsing Kindle highlights and sending daily insights by email using SendGrid. This project is inspired by Readwise to help users manage and revisit their Kindle highlights simply
 
-![](/img/pensieve.png)
+![](/img/insights.png)
 
 ### Getting started
 
@@ -25,7 +25,7 @@ go get github.com/go-sql-driver/mysql
 go get github.com/sendgrid/sendgrid-go
 ```
 
-Set up your MySQL database and SendGrid account to obtain an API key
+Set up your MySQL database and SMPT2GO account to obtain an API key
 
 
 ```bash

@@ -24,17 +24,12 @@ func (s *APIServer) Run() {
 
 	store := NewStore(s.db)
 
-	apiKey := EnvString("SENDGRID_API_KEY", "")
-	if apiKey == "" {
-		log.Fatal("SENDGRID_API_KEY must be set")
-	}
-
-	fromEmail := EnvString("SENDGRID_FROM_EMAIL", "")
+	fromEmail := EnvString("FROM_EMAIL", "")
 	if fromEmail == "" {
-		log.Fatal("SENDGRID_FROM_EMAIL must be set")
+		log.Fatal("FROM_EMAIL must be set")
 	}
 
-	mailer := NewSendGridMailer(apiKey, fromEmail)
+	mailer := NewSmtp2goMailer(fromEmail)
 	service := NewService(store, mailer)
 	service.RegisterRoutes(subrouter)
 
