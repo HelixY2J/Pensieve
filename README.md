@@ -32,3 +32,4 @@ Make sure to have GO 1.12+ installed
 ```bash
 make run
 ```
+Also check setup the env variables as listed in .envrc.example file
