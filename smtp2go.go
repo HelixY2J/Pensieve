@@ -58,7 +58,7 @@ func (m *Smtp2goMailer) SendInsights(insights []*DailyInsight, u *User) error {
 }
 
 func BuildInsightsMailTemplate(u *User, ins []*DailyInsight) string {
-	templ, err := template.ParseFiles("daily.tmpl")
+	templ, err := template.ParseFiles("daily.templ")
 	if err != nil {
 		panic(err)
 	}
