@@ -20,9 +20,7 @@ cd pensieve
 Install the necessary dependencies
 
 ```bash
-go get github.com/gorilla/mux
-go get github.com/go-sql-driver/mysql
-go get github.com/sendgrid/sendgrid-go
+go mody tidy
 ```
 
 Set up your MySQL database and SMPT2GO account to obtain an API key
